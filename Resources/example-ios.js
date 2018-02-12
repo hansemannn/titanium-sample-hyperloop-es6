@@ -1,15 +1,7 @@
 'use strict';
 
-import UIAlertController from 'UIKit';
+import { UIAlertController, UIAlertAction, UIAlertActionStyle, UIAlertControllerStyle } from 'UIKit';
 import TiApp from 'Titanium/TiApp';
-
-import { 
-	UIAlertControllerStyleAlert, 
-	UIAlertControllerStyleActionSheet,
-	UIAlertActionStyleDefault,
-	UIAlertActionStyleDestructive,
-	UIAlertActionStyleCancel
-} from 'UIKit';
 
 export default class Example {
 
@@ -20,11 +12,11 @@ export default class Example {
     this.window = Ti.UI.createWindow();
     
     this.buttonAlert.addEventListener('click', (event) => {
-    	this.showAlertWithStyle(UIAlertControllerStyleAlert);
+    	this.showAlertWithStyle(UIAlertControllerStyle.Alert);
     });
 
     this.buttonActionSheet.addEventListener('click', (event) => {
-    	this.showAlertWithStyle(UIAlertControllerStyleActionSheet);
+    	this.showAlertWithStyle(UIAlertControllerStyle.ActionSheet);
     });
     
     this.window.add(this.buttonAlert);
@@ -35,15 +27,15 @@ export default class Example {
   showAlertWithStyle(style) {
   	const alertController = UIAlertController.alertControllerWithTitleMessagePreferredStyle('My Title', 'My Message', style);
 
-  	const alertAction = UIAlertAction.actionWithTitleStyleHandler('OK', UIAlertActionStyleDefault, (action) => {
+  	const alertAction = UIAlertAction.actionWithTitleStyleHandler('OK', UIAlertActionStyle.Default, (action) => {
   		this.noticeLabel.setText('Clicked OK!');
   	});
   		
-  	const cancelAction = UIAlertAction.actionWithTitleStyleHandler('Cancel', UIAlertActionStyleCancel, (action) => {
+  	const cancelAction = UIAlertAction.actionWithTitleStyleHandler('Cancel', UIAlertActionStyle.Cancel, (action) => {
   		this.noticeLabel.setText('Clicked Cancel!');
   	});
   	
-  	const destructiveAction = UIAlertAction.actionWithTitleStyleHandler('Delete', UIAlertActionStyleDestructive, (action) => {
+  	const destructiveAction = UIAlertAction.actionWithTitleStyleHandler('Delete', UIAlertActionStyle.Destructive, (action) => {
   		this.noticeLabel.setText('Clicked Delete!');
   	});
 
