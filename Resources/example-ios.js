@@ -11,11 +11,11 @@ export default class Example {
     this.noticeLabel = Ti.UI.createLabel({ top: 300 });
     this.window = Ti.UI.createWindow();
     
-    this.buttonAlert.addEventListener('click', (event) => {
+    this.buttonAlert.addEventListener('click', event => {
     	this.showAlertWithStyle(UIAlertControllerStyle.Alert);
     });
 
-    this.buttonActionSheet.addEventListener('click', (event) => {
+    this.buttonActionSheet.addEventListener('click', event => {
     	this.showAlertWithStyle(UIAlertControllerStyle.ActionSheet);
     });
     
@@ -27,15 +27,15 @@ export default class Example {
   showAlertWithStyle(style) {
   	const alertController = UIAlertController.alertControllerWithTitleMessagePreferredStyle('My Title', 'My Message', style);
 
-  	const alertAction = UIAlertAction.actionWithTitleStyleHandler('OK', UIAlertActionStyle.Default, (action) => {
+  	const alertAction = UIAlertAction.actionWithTitleStyleHandler('OK', UIAlertActionStyle.Default, action => {
   		this.noticeLabel.setText('Clicked OK!');
   	});
   		
-  	const cancelAction = UIAlertAction.actionWithTitleStyleHandler('Cancel', UIAlertActionStyle.Cancel, (action) => {
+  	const cancelAction = UIAlertAction.actionWithTitleStyleHandler('Cancel', UIAlertActionStyle.Cancel, action => {
   		this.noticeLabel.setText('Clicked Cancel!');
   	});
   	
-  	const destructiveAction = UIAlertAction.actionWithTitleStyleHandler('Delete', UIAlertActionStyle.Destructive, (action) => {
+  	const destructiveAction = UIAlertAction.actionWithTitleStyleHandler('Delete', UIAlertActionStyle.Destructive, action => {
   		this.noticeLabel.setText('Clicked Delete!');
   	});
 
